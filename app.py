@@ -20,7 +20,7 @@ def about():
 @app.route('/view')
 def view():
     try:
-        df = pd.read_csv('C:\\Users\\tshan\\Desktop\\TK131218\\CODE\\data.csv')
+        df = pd.read_csv('data.csv')
         dataset = df.head(100)
         print("Data loaded successfully.")
         return render_template('view.html', columns=dataset.columns.values, rows=dataset.values.tolist())
@@ -31,7 +31,7 @@ def view():
 @app.route('/model', methods=['POST', 'GET'])
 def model():
     if request.method == "POST":
-        data = pd.read_csv('C:\\Users\\tshan\\Desktop\\TK131218\\CODE\\data.csv')
+        data = pd.read_csv('data.csv')
         x = data.iloc[:, :-1]
         y = data.iloc[:, -1]
 
